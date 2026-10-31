@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Visualizador 3D — Toddler Mobility Trainer</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Arial, Helvetica, sans-serif; color: #202124;
+      background: #f4f6f8; min-height: 100vh; display: flex;
+      align-items: center; justify-content: center; padding: 18px;
+    }
+    main {
+      width: min(100%, 900px); background: white; border-radius: 18px;
+      padding: 22px; box-shadow: 0 8px 30px rgba(0,0,0,.08);
+    }
+    h1 { font-size: clamp(1.35rem, 4vw, 2rem); margin: 0 0 8px; }
+    p { line-height: 1.5; color: #555; }
+    model-viewer {
+      width: 100%; height: min(68vh, 600px); min-height: 340px;
+      background: #eef1f4; border-radius: 14px;
+      --poster-color: #eef1f4;
+    }
+    .hint { font-size: .92rem; margin-bottom: 0; }
+    .ar-button {
+      position: absolute; bottom: 16px; right: 16px;
+      border: 0; border-radius: 24px; padding: 12px 18px;
+      background: #155eef; color: white; font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,.2); cursor: pointer;
+    }
+    .instructions { font-size: .9rem; margin-top: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>3D Toddler Mobility Trainer</h1>
+    <p>Gire o equipamento com o dedo ou mouse. Use dois dedos para aproximar ou afastar.</p>
+    <model-viewer
+      src="./equipamento.glb"
+      alt="Modelo 3D do equipamento Toddler Mobility Trainer"
+      camera-controls
+      touch-action="pan-y"
+      auto-rotate
+      rotation-per-second="18deg"
+      shadow-intensity="1"
+      exposure="1"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-orbit="0deg 70deg auto"
+      field-of-view="30deg"
+      loading="eager">
+      <button slot="ar-button" class="ar-button">Ver no meu espaço (AR)</button>
+      <p slot="progress-bar">Carregando modelo 3D…</p>
+    </model-viewer>
+    <p class="instructions">Se o botão de realidade aumentada não aparecer, o aparelho ou navegador pode não oferecer suporte a esse modo. A visualização 3D continua disponível.</p>
+    <p class="hint">Projeto demonstrativo. Confirme dimensões, montagem e segurança do equipamento com a equipe responsável antes de qualquer uso físico.</p>
+  </main>
+</body>
+</html>
